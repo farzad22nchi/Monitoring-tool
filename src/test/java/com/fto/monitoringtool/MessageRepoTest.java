@@ -55,10 +55,12 @@ public class MessageRepoTest {
 		msg_2.setText("this is created for testing purpose 2");
 		msg_2.setRequestTime(LocalDateTime.now());
 		Message save3 = repo.save(msg_2);
+		List<Message> actualMsg = List.of(save2, save3);
 		
-		List<Message> messages = repo.filterById(1l,2l);
-		System.out.println(messages.size());
-		messages.forEach(m->System.out.println(m.getText()));
+		List<Message> expectMsg = repo.filterById(save2.getId(),save3.getId());
+		
+		assertThat(expectMsg.size() == 2);
+		assertThat(actualMsg).isEqualTo(expectMsg);
 		
 	}
 
