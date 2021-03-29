@@ -2,17 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Monitoring Page</title>
+<title>Message Registration</title>
 <link rel="stylesheet" type="text/css"
 	href="/webjars/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
 	<div class="container text-center">
 		<div>
-			<h1>Monitoring page</h1>
+			<h1>Message Registration</h1>
 		</div>
 		<div>
-			<form th:action="@{send_message}" method="post"
+			<form th:action="@{success_send_message}" method="post"
 				style="max-width: 600px; margin: 0 auto" 
 				th:object="${messageKey}">
 				<div class="form-group row">
@@ -23,7 +23,7 @@
 					</div>
 				</div>
 				<div>
-					<button type="submit" class="btn btn-primary">start</button>
+					<button type="submit" class="btn btn-primary">save</button>
 				</div>
 			</form>
 		</div>
