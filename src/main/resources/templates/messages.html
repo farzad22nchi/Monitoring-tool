@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container text-center">
+		<div>
+			<h1>List of messages</h1>
+		</div>
+		<div>
+			<form action="messages"  style=" margin: 0 auto;" >
+				<div class="form-inline center" style="max-width: 600px; margin: 0 auto" >
+					<div class="col">
+						 <input type="text" class="form-control col-md-6" name="f" id="first" placeholder="Min">
+					</div>
+					<div class="col">
+						<input type="text" class="form-control col-md-6" name="l" id="last" placeholder="Max">
+					</div>
+				</div>
+					<button type="submit" class="btn btn-primary">filter</button>
+			</form>
+		</div>
+		<div>
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<td>id</td>
+						<td>message</td>
+						<td>time</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="message: ${messageList}">
+						<td th:text="${message.id}">id</td>
+						<td th:text="${message.text}">message</td>
+						<td th:text="${message.requestTime}">time</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
